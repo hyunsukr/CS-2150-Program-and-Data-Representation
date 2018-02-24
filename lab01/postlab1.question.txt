@@ -1,0 +1,2 @@
+Questions about postlab 1
+1. It seems as thought this was for stacks and can be modified for queues. However I was wondering if you can just # include this file into different files to use the stack and queue method?Can I just import this file like you can do inin Java? 

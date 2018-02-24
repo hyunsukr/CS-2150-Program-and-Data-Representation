@@ -1,0 +1,67 @@
+//Hyun Suk Ryoo
+//hr2ee
+//9/13/17
+//postfixCalculator.cpp
+#include <iostream>
+#include "postfixCalculator.h"
+using namespace std;
+
+postfixCalculator::postfixCalculator() {
+  stck = new Stack;
+}
+postfixCalculator::~postfixCalculator() {
+}
+void postfixCalculator::pushNum(int e) {
+  stck->push(e);
+}
+int postfixCalculator::getTopValue() {
+  return stck->top();
+}
+void postfixCalculator::add() {
+  if(!(stck->empty())) {
+    int num1 = stck->top();
+    stck->pop();
+    int num2 = stck->top();
+    stck->pop();
+    int num = num1 + num2;
+    stck->push(num);
+  }  
+}
+void postfixCalculator::sub() {
+  if(!(stck->empty())) {
+    int num1 = stck->top();
+    stck->pop();
+    int num2 = stck->top();
+    stck->pop();
+    int num = num2 - num1;
+    stck->push(num);
+  }
+}
+void postfixCalculator::mult() {
+  if(!(stck->empty())) {
+    int num1 = stck->top();
+    stck->pop();
+    int num2 = stck->top();
+    stck->pop();
+    int num = num1 * num2;
+    stck->push(num);
+  }
+}
+void postfixCalculator::div() {
+  if(!(stck->empty())) {
+    int num1 = stck->top();
+    stck->pop();
+    int num2 = stck->top();
+    stck->pop();
+    int num = num2/num1;
+    stck->push(num);
+  }
+}
+void postfixCalculator::neg() {
+  if(!(stck->empty())) {
+    int num1 = stck->top();
+    stck->pop();
+    int num = 0 - num1;
+    stck->push(num);
+  }
+}

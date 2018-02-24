@@ -1,0 +1,9 @@
+Hyun Suk Ryoo (Max Ryoo)
+hr2ee
+8/30/17
+lifecycle.questions.txt
+
+Question about lifecycle.cpp output
+1. When sally was defined did she get the number value of Bob or did I just miss that  step? Is it just replacing the name?
+
+

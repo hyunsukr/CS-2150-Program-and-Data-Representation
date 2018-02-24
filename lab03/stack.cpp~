@@ -1,0 +1,32 @@
+//Hyun Suk Ryoo
+//hr2ee
+//9/14/17
+//stack.cpp
+#include "stack.h"
+#include <iostream>
+using namespace std;
+
+Stack::Stack() {
+  head = NULL;
+}
+Stack::~Stack() {
+}
+void Stack::push(int e) {
+  ListNode *newListNode = new ListNode();
+  newListNode->value = e;
+  newListNode->next = head;
+  head->previous = newListNode;
+  head = newListNode;
+}
+int Stack::top() {
+  return head->value;
+}
+void Stack::pop() {
+  delete head;
+}
+bool Stack::empty() {
+  if (head == NULL) {
+    return true;
+  }
+  return false;
+}

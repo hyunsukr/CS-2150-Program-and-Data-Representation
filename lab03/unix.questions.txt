@@ -1,0 +1,7 @@
+hyun suk ryoo
+hr2ee
+9/12/17
+unix.questions.txt
+
+Question
+1. I understand that cd .. is for the parent directory, and i konw ~ is for the home directory, but what if the directory i'm currently in is right before the homedirectory? does it matter what command i need to use?
