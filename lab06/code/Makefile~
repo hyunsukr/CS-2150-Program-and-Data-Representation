@@ -1,0 +1,13 @@
+#Hyun Suk Ryoo hr2ee Makefile 10.17
+CXX = clang++ -O2
+CXXFLAGS = -Wall -g
+OFILES = wordPuzzle.o hashTable.o timer.o
+.SUFFIXES: .o .cpp
+
+hashTable.o: hashTable.cpp hashTable.h
+timer.o: timer.cpp timer.h
+wordPuzzle.o: wordPuzzle.cpp hashTable.h timer.h
+
+
+clean:
+	-rm -f *.o *~ outputfile
