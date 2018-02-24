@@ -1,0 +1,75 @@
+//hyun suk ryoo hr2ee 9/17/17 prelab4.cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void sizeOfTest () {
+  cout << "The size of the int is " << sizeof(int) <<endl;
+  cout << "The size of the unsigned int " << sizeof(unsigned int) <<endl;
+  cout << "The size of the float is " <<sizeof(float) <<endl;
+  cout << "The size of the double is " << sizeof(double) <<endl;
+  cout << "The size of the char is " << sizeof(char) <<endl;
+  cout << "The size of the bool is " << sizeof(bool) <<endl;
+  cout << "The size of the int* is " << sizeof(int*) <<endl;
+  cout << "The size of the char* is " << sizeof(char*) <<endl;
+  cout << "The size of the double* is " << sizeof(double*) <<endl;
+}
+void outputBinary(unsigned int x) { 
+  stack<int> binary;
+  for (int i = 0; i<32; i++) {
+    if (x>2 && x%2 == 0) {
+      binary.push(0);
+      x = x/2;
+    }
+    else if (x>2 && x%2 == 1) {
+      binary.push(1);
+      x = x/2;
+    }
+    else if (x == 2 || x == 0) {
+      binary.push(0);
+      x = x/2;
+    }
+    else if (x ==1) {
+      binary.push(1);
+      x = 0;
+    }
+    else {
+      binary.push(0);
+      x = 0;
+    }
+  }
+  while (!binary.empty()) {
+    for (int i = 0; i < 4; i++) {
+      cout << binary.top();
+    }
+    for (int i = 4; i < 8; i++) {
+      cout << binary.top();
+    }
+    for (int i = 8; i < 12; i++) {
+      cout << binary.top();
+    }
+    for (int i = 12; i < 16; i++) {
+      cout << binary.top();
+    }
+    for (int i= 16; i< 20; i++) {
+      cout << binary.top();
+    }
+    for (int i = 20; i < 24; i++) {
+      cout << binary.top();
+    }
+    for (int i = 24; i < 28; i++) {
+      cout << binary.top();
+    }
+    for (int i = 28; i < 32; i++) {
+      cout << binary.top();
+    }
+  }
+}
+
+int main() {
+  sizeOfTest();
+  int x;
+  cout<< "Enter a number you would like to change to binary" <<endl;
+  cin>>x;
+  outputBinary(x);
+}
