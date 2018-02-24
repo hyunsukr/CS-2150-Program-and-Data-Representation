@@ -1,0 +1,38 @@
+C00F	000		jmp	start	skip aroundt the variables
+0000	001	i	dw	0	int i
+0000	002	c	dw	0	int c
+0009	003	a	dw	0	int a[]
+0000	004	max	dw	0	int max
+0000	005	zero	dw	0	zero
+0001	006	one	dw	1	one
+3000	007	ldit	dw	3000	load
+0003	008	size	dw	3	hard coded size of array
+0001	009	a[0]	dw	1	a[0] = 1
+0007	00A	a[1]	dw	7	a[1] = 7
+0011	00B	a[2]	dw	11	a[2] = 11
+0000	00C				empty space
+0000	00D				empty space
+0000	00E				empty space 
+3008	00F	start	load	size	load the size of the array
+6001	010		sub	i	
+E022	011		jmpl	xit	if size-i < 0 go to the end
+D022	012		jmpe	xit	if size -i = 0 go to the end
+3007	013		load	ldit
+5003	014		add	a[]	add value of a
+5001	015		add	i	add i (location of the array)
+4017	016		store	doit	plant the instruction into the program
+0000	017	doit	dw	0
+4002	018		store	c	store value into the c
+6004	019		sub	max	a[i] - max
+E01E	01A		jmpl	xit	if max is greater go to the end
+D01E	01B		jmpe	xit	if max is the same value go to the end
+3002	01C		load	c	loads the value c
+4004	01D		store	max	set max value to c value
+3001	01E	endloop	load	i	end loop and set value as i
+5006	01F		add	1	i++
+4001	020		store	i	
+C00F	021		jmp	start	start loop again
+3004	022	xit	load	max	load max
+1800	023		printH	max	print max value
+0000	024		halt
+B000	025		do nothing	Hyun Suk Ryoo hr2ee 10/24 array.ibcm

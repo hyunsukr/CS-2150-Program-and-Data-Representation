@@ -1,0 +1,64 @@
+C00F	000		jmp	start	skip around the variables
+0005	001	MAX	dw	5	int MAX = 5
+0000	002	temp	dw	0	int temp
+0000	003	next	dw	0	int next
+0005	004	A[]	dw	0	int A[]
+0011	005	A[0]	dw	1	a[0] = 9
+0009	006	A[1]	dw	3	a[1] = 7
+0007	007	A[2]	dw	5	a[2] = 11
+0003	008	A[3]	dw	6	a[3] = 3
+0001	009	A[4]	dw	9	a[4] = 1
+0000	00A	i	dw	0	int i
+0004	00B	j	dw	4	int j
+3000	00C	load	dw	3000	load heloper
+0001	00D	one	dw	1	1 
+4000	00E	store	dw	4000	store heloper
+3001	00F	start	load	MAX	load MAX
+600A	010		sub	i	MAX-i
+E03E	011		jmpl	xit	if i>MAX go to the end (END LOOP)
+D03E	012		jmpe	xit	if i = MAX go to the end
+300B	013	start2l	load	j	load j
+600A	014		sub	i	j - i
+E037	015		jmpl	xit	if i>j go to the endloop
+D037	016		jmpe	xit	if i=j go to the endloop
+300C	017		load	l.help	
+5004	018		add	A[]	add A[]
+500B	019		add	j	add A[j]
+401D	01A		store	doit	plant the instruction into the program
+600D	01B		sub	1	j-1
+401F	01C		store	doit2			
+0000	01D	doit	dw	0
+4003	01E		store	next	a[j] = next
+0000	01F	doit2	dw	0
+4002	020		store	temp	a[j-1] = temp
+6003	021		sub	next	next
+B002	022		sub	temp	a[j-1] - a[j]
+E025	023		jmpl	doit3	if a[j-1] < a[j] go next
+D033	024		jmpe	xit	if a[j-1] = a[j] go to texit code
+B000	025	doit3	dw	0
+300E	026	doit3	load	s.help	
+5004	027		add	A[]
+500B	028		add	j	add A[j]
+402B	029		store	doit4	
+3002	02A		load	temp	loads temporary value
+0000	02B	doit4	dw	0
+300E	02C		load	s.help
+5004	02D		add	A[]
+500B	02E		add	j	add A[j]
+600D	02F		sub	1	j - 1
+4032	030		store	ladit	plant instruction into the program
+3003	031		load	next
+0000	032	ladit	dw	0	last doit command
+300B	033	endlp	load	j	laod j
+600D	034		sub	1	j - 1
+400B	035		store	j	stores new j value
+C013	036		jmp	loop2	starts back at loop 2
+300A	037	endilp	load	i	load i
+500D	038		add	1	i ++
+400A	039		store	i	store new i value
+3001	03A		load	MAX	
+600D	03B		sub	1	
+400B	03C		store	j
+C00F	03D		jmp	start	start loop again
+0000	03E	xit	halt
+B000	03F		do nothing	Hyun Suk Ryoo hr2ee bubblesort.ibcm

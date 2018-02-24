@@ -1,0 +1,13 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+extern "C" int _threexplusone(int);
+
+int main() {
+  int x, y;
+  cin >> x;
+  y = threexplusone(x);
+  cout << y << endl;
+}

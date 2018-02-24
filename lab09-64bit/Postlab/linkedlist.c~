@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct List {
+  struct listnode *head;
+};
+
+struct listnode {
+  struct listnode *prev, *next;
+  int val;
+};
+
+int main() {
+  printf("Enter how many values to input: ");
+  int num;
+  scanf("%d", &num);
+  struct List *newlist;
+  struct listnode *beg;
+
+  newlist = (struct List*) malloc(sizeof(struct List));
+  newlist->head = (struct listnode*) malloc(sizeof(struct listnode));
+  newlist->head->val = 0;
+  beg = newlist->head;
+
+  for(int i = 0; i<num; i++) {
+    int value;
+    printf("Enter value %d: ", i+1);
+    scanf("%d", &value);
+    beg->next = (struct listnode*) malloc(sizeof(struct listnode));
+    beg->val = value;
+    beg = beg->next;
+  }
+  struct listnode *end = newlist->head;
+  for(int x = 0; x<num; x++) {
+    printf("%d\n" , end->val);
+    end = end->next;
+  }
+  free(newlist);
+  return 0;
+}

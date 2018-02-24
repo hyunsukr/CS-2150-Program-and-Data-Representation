@@ -1,0 +1,27 @@
+C009	000		jmp	skip around the variables
+0001	001		dw	one
+0019	002		dw	size
+0000	003		dw	counter
+3000	004		store
+B000	005		store	
+5003	006		add	count
+0000	007			space for change
+0000	008			space for change
+3004	009	start	load
+5003	00A		add	counter
+400C	00B		store
+0000	00C		doit
+1800	00D		printH	print first line
+3003	00E		load	loads counter
+5001	00F		add	one
+4003	010		store	store new count value
+3002	011		load	size
+6003	012		sub	sub size (count - size)
+D016	013		jmpe	jump to the end loop
+E019	014		jmpl	jump to the end loop
+C009	015		jmp	jmp to the start
+3007	016	endlp	load	1
+4003	017		store	store count as 1
+1800	018		printH
+0000	019		halt
+B000			do nothing	hyun suk ryoo hr2ee 10/27/17 quine.ibcm

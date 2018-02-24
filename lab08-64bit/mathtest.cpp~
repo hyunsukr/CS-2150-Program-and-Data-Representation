@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+extern "C" int product (int, int);
+
+int main() {
+  int x, y, product1, power;
+  cout << "Enter two numbers to multiply" << endl;
+  cin >> x;
+  cin >> y;
+  product1 = product(x,y);
+  power1 = power(x,y);
+  cout << product1 << endl;
+  cout << power1 << endl;
+}

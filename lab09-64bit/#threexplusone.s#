@@ -1,0 +1,30 @@
+	global _threexplusone
+	section .text
+
+_threexplusone:
+	push rbx
+	mov rbx, rdi
+	cmp rbx, 1
+	je _one
+	shr rbx, 1
+	jnc _even
+	jmp _odd
+_even:
+	shr rbx, 1
+	push rbx
+	call _threexplusone
+	inc rax
+	jmp _end
+_odd:
+	imul rbx, 3
+	add rbx, 1
+	push rbx
+	call _threexplusone
+	inc rax
+	jmp _end
+_one:
+	mov rax, 0
+	       
+_end:
+	pop rbx
+	ret
