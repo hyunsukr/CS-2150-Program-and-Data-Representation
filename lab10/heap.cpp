@@ -1,0 +1,99 @@
+//Hyun Suk Ryoo
+//hr2ee
+//12/21/17
+//heap.cpp
+
+#include <iostream>
+#include "heap.h"
+#include <vector>
+using namespace std;
+
+heap::heap(){
+  curr = 0;
+  heap1.push_back(0);
+}
+
+heap::~heap() {
+  curr =0;
+  heap1.clear();
+}
+
+void heap::insert(huffnode *node) {
+  heap1.push_back(node);
+  curr++;
+  percolateUp(curr);
+}
+
+void heap::percolateUp(int hole) {
+  huffnode *node = heap1[hole];
+  for ( ; (hole>1) && (node->getFreq() < heap1[hole/2]->getFreq()); hole /=2)
+    heap1[hole] = heap1[hole/2];
+  heap1[hole] = node;
+}
+
+void heap::empty() {
+  curr = 0;
+}
+bool heap::isempty() {
+  return curr == 0;
+}
+
+void heap::deletemin() {
+  if(curr ==0) {
+    cout << "the heap is empty" << endl;
+  }
+  else{
+    //cout << heap1[1]->getC()<<endl;
+    heap1[1] = heap1[curr--];
+    //cout << heap1[1] ->getC() << endl;
+    heap1.pop_back();
+    percolateDown(1);
+  }
+
+  //  cout << "\n after deletermin" << endl;
+  //  for(int i = 1; i < heap1.size();i++){
+    //    cout << heap1[i]->getC()<<" "<<heap1[i]->getFreq()<<endl;
+    //  }cout << endl;
+  //  cout << endl;
+}
+
+void heap::percolateDown(int hole) {
+  huffnode *node = heap1[hole];
+  while (hole*2 <= curr) {
+    int child = hole*2;
+    if ( child !=  curr+1 && (heap1[child+1]->getFreq() < heap1[child]->getFreq())) {
+      child++;
+    }
+    //cout << child << endl;
+    if (heap1[child]->getFreq() < node->getFreq()) {
+	heap1[hole] = heap1[child];
+    }
+    else break;
+    hole = child;
+  }
+  heap1[hole] = node;
+}
+
+int heap::size() {
+  return curr;
+}
+
+huffnode* heap::findmin() {
+  return heap1[1];
+}
+
+vector<huffnode*> heap::getVec() {
+  return heap1;
+}
+/*
+void heap::print() {
+  cout << "(" << heap1[0] << ") ";
+  for( int i=1; i <= heap1.size(); i++) {
+    cout << heap1[i] << " ";
+    bool isPow2 = (((i+1) & -(i))==(i+1))? i+1 : 0;
+    if ( isPow2)
+      cout << endl << "\t";
+  }
+  cout << endl;
+}
+*/

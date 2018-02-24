@@ -1,0 +1,4 @@
+hr2ee
+
+I have tried implmeneting maketree to make tree from the prefixes, but ran into a seg fault. It seems to me that there is something wrong with the while. I'm not sure, but am submitting what i have since I'm not sure how to go about this problem. I have also implmeneted a way to traverse the tree that was made by the prefixes, which i believe works. Sorry...I tried....
+
